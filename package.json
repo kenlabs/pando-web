@@ -1,0 +1,25 @@
+{
+  "name": "pando-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "tailwindcss -i ./src/tailwind.css -o ./src/css/tailwind.css -w",
+    "build": "gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "gulp": "^4.0.2",
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.5",
+    "tailwindcss": "^3.0.1"
+  },
+  "dependencies": {
+    "gulp-minify-cssnames": "^2.1.0"
+  }
+}
