@@ -37,7 +37,7 @@ jobs:
           template: basic_success_1
 
 workflows:
-  vue-build:
+  build:
     jobs:
       - build:
           filters:
