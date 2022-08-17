@@ -252,6 +252,7 @@
           <div class="ud-w-full ud-px-4">
             <div class="ud-mx-auto ud-max-w-[720px] ud-text-center">
               <h1
+              id="title"
                 class="ud-mb-4 ud-text-3xl ud-font-bold ud-leading-tight ud-text-black dark:ud-text-white md:ud-text-[45px]"
               >
                 Scaling Web3 dApps with OffChain data infrastructure
@@ -748,7 +749,7 @@
             <div class="ud-w-full ud-px-4 lg:ud-w-1/2">
               <div class="wow fadeInUp ud-mb-9" data-wow-delay="0s">
                 <span
-                  class="ud-mb-3 ud-text-lg ud-font-bold ud-uppercase ud-text-primary sm:ud-text-xl"
+                  class="ud-mb-3 ud-text-lg ud-font-bold ud-uppercase ud-text-black sm:ud-text-xl"
                 >
                   LEGEND
                 </span>
@@ -2179,7 +2180,7 @@
           data-wow-delay="0s"
         >
           <span
-            class="ud-mb-3 ud-text-lg ud-font-bold ud-uppercase ud-text-primary sm:ud-text-xl"
+            class="ud-mb-3 ud-text-lg ud-font-bold ud-uppercase ud-text-black sm:ud-text-xl"
           >
             TESTIMONIALS
           </span>
@@ -2477,7 +2478,7 @@
           data-wow-delay="0s"
         >
           <span
-            class="ud-mb-3 ud-text-lg ud-font-bold ud-uppercase ud-text-primary sm:ud-text-xl"
+            class="ud-mb-3 ud-text-lg ud-font-bold ud-uppercase ud-text-black sm:ud-text-xl"
           >
             FAQ
           </span>
@@ -3527,7 +3528,7 @@
     <!-- ====== Back To Top Start -->
     <a
       x-show="scrolledFromTop"
-      href="javascript:void(0)"
+      href="#title"
       name="scrollToTop"
       aria-label="scrollToTop"
       class="hover:ud-shadow-signUp back-to-top ud-fixed ud-bottom-8 ud-right-8 ud-left-auto ud-z-[999] ud-flex ud-h-10 ud-w-10 ud-items-center ud-justify-center ud-rounded-lg ud-bg-primary ud-text-white ud-shadow-md ud-transition"
@@ -3569,6 +3570,7 @@
           const refElement = document.querySelector(val);
           const scrollTopMinus = scrollPos + 73;
           if (
+            refElement && 
             refElement.offsetTop <= scrollTopMinus &&
             refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
           ) {
