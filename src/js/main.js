@@ -44,6 +44,6 @@ Math.easeInOutQuad = function (t, b, c, d) {
 };
 
 
-// document.querySelector(".back-to-top").onclick = () => {
-//   scrollTo(document.documentElement);
-// };
+document.querySelector(".back-to-top").onclick = () => {
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
+};
