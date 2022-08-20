@@ -1692,7 +1692,16 @@ body {
   --tw-text-opacity: 1;
   color: rgb(8 3 33 / var(--tw-text-opacity));
 }
-
+.ud-text-blue{
+  --tw-text-opacity: 1;
+  color:#3264ba
+}
+.ud-bg-gray{
+  background-color: #eceff5;
+}
+.ud-bg-blue{
+  background-color:#3264ba
+}
 .ud-text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
