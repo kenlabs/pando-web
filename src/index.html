@@ -103,7 +103,7 @@
                   </li>
                   <li>
                     <a
-                      href="#docs"
+                      href="https://pando-doc.kencloud.com"
                       class="scroll-menu ud-flex ud-py-2 ud-text-lg ud-font-semibold ud-text-body-color-2 hover:ud-text-primary dark:ud-text-body-color dark:hover:ud-text-white lg:ud-ml-7 lg:ud-inline-flex lg:ud-py-5 xl:ud-ml-10 2xl:ud-ml-12"
                     >
                       Docs
@@ -112,7 +112,7 @@
 
                   <li>
                     <a
-                      href="#blog"
+                      href="https://pando-blog.kencloud.com"
                       class="scroll-menu ud-flex ud-py-2 ud-text-lg ud-font-semibold ud-text-body-color-2 hover:ud-text-primary dark:ud-text-body-color dark:hover:ud-text-white lg:ud-ml-7 lg:ud-inline-flex lg:ud-py-5 xl:ud-ml-10 2xl:ud-ml-12"
                     >
                       Blog
@@ -3547,47 +3547,7 @@
     <script src="js/main.js"></script>
     <script>
       // ==== for menu scroll
-      const pageLink = document.querySelectorAll(".scroll-menu");
 
-      pageLink.forEach((elem) => {
-        elem.addEventListener("click", (e) => {
-          e.preventDefault();
-          document.querySelector(elem.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-            offsetTop: 1 - 60,
-          });
-        });
-      });
-
-      // section menu active
-      function onScroll(event) {
-        const sections = document.querySelectorAll(".scroll-menu");
-        const scrollPos =
-          window.pageYOffset ||
-          document.documentElement.scrollTop ||
-          document.body.scrollTop;
-
-        for (let i = 0; i < sections.length; i++) {
-          const currLink = sections[i];
-          const val = currLink.getAttribute("href");
-          const refElement = document.querySelector(val);
-          const scrollTopMinus = scrollPos + 73;
-          if (
-            refElement && 
-            refElement.offsetTop <= scrollTopMinus &&
-            refElement.offsetTop + refElement.offsetHeight > scrollTopMinus
-          ) {
-            document
-              .querySelector(".scroll-menu")
-              .classList.remove("dark:ud-text-white", "ud-text-primary");
-            currLink.classList.add("dark:ud-text-white", "ud-text-primary");
-          } else {
-            currLink.classList.remove("dark:ud-text-white", "ud-text-primary");
-          }
-        }
-      }
-
-      window.document.addEventListener("scroll", onScroll);
 
       // ====
       var options = {
