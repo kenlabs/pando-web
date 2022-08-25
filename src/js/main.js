@@ -47,3 +47,123 @@ Math.easeInOutQuad = function (t, b, c, d) {
 document.querySelector(".back-to-top").onclick = () => {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
+
+const url = 'https://slack.com/api/chat.postMessage'
+const headers = {
+  'Content-type': 'application/json',
+  Authorization:'Bearer xoxb-2544772940691-3967276504629-u59O14TpWtYSseshTR1YplDa'
+}
+document.querySelector('#submitInfo').onclick=()=>{
+  const name = document.getElementById('name').value
+  const email = document.getElementById('email').value
+  const message = document.getElementById('message').value
+  const data = {
+    "channel": "C02FU0RPDLN",
+    "blocks": [
+      {
+        "type": "section",
+        "text": {
+          "text": "PandoWeb Chat",
+          "type": "mrkdwn"
+        },
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Full Name*"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Email*"
+          },
+          {
+            "type": "plain_text",
+            "text": name
+          },
+          {
+            "type": "plain_text",
+            "text": email
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Message*"
+          },
+          {
+            "type": "mrkdwn",
+            "text": " "
+          },
+          {
+            "type": "plain_text",
+            "text": message
+          }
+        ]
+      }
+    ]
+  }
+  fetch({
+    url,
+    body:JSON.stringify(data),       
+    headers
+  }) .then(response => response.json()).then(json=>{
+    if(json.ok){
+      alert('Success!')
+    }else{
+      alert('Fail!')
+    }
+  }).catch(()=>{
+    alert('Fail!')
+  })
+  return false
+}
+
+document.querySelector('#emailOnlySubmit').onclick=()=>{
+  const email = document.getElementById('emailOnly').value
+  const data = {
+    "channel": "C02FU0RPDLN",
+    "blocks": [
+      {
+        "type": "section",
+        "text": {
+          "text": "PandoWeb Chat",
+          "type": "mrkdwn"
+        },
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Full Name*"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Email*"
+          },
+          {
+            "type": "plain_text",
+            "text": email
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Message*"
+          },
+          {
+            "type": "mrkdwn",
+            "text": " "
+          },
+        ]
+      }
+    ]
+  }
+  fetch({
+    url,
+    body:JSON.stringify(data),       
+    headers
+  }) .then(response => response.json()).then(json=>{
+    if(json.ok){
+      alert('Success!')
+    }else{
+      alert('Fail!')
+    }
+  }).catch(()=>{
+    alert('Fail!')
+  })
+  return false
+}
+
