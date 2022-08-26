@@ -48,7 +48,7 @@ document.querySelector(".back-to-top").onclick = () => {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 
-const url = 'https://slack.com/api/chat.postMessage'
+const url = 'https://slack.com/api/chat.postMessage/'
 const headers = {
   'Content-type': 'application/json',
   Authorization:'Bearer xoxb-2544772940691-3967276504629-u59O14TpWtYSseshTR1YplDa'
@@ -99,9 +99,9 @@ document.querySelector('#submitInfo').onclick=()=>{
       }
     ]
   }
-  fetch({
-    url,
+  fetch(url,{
     body:JSON.stringify(data),       
+    method:'POST',
     headers
   }) .then(response => response.json()).then(json=>{
     if(json.ok){
@@ -151,8 +151,8 @@ document.querySelector('#emailOnlySubmit').onclick=()=>{
       }
     ]
   }
-  fetch({
-    url,
+  fetch(url,{
+    method:'POST',
     body:JSON.stringify(data),       
     headers
   }) .then(response => response.json()).then(json=>{
