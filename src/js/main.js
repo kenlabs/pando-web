@@ -48,122 +48,31 @@ document.querySelector(".back-to-top").onclick = () => {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 
-const url = 'https://slack.com/api/chat.postMessage/'
+const url = 'https://slack.com/api/chat.postMessage'
+const token = 'xoxb-2544772940691-3967276504629-d3OomOkFhpZZ6CM4dRiP2wLW'
+const channel = 'C02FU0RPDLN'
 const headers = {
-  'Content-type': 'application/json',
-  Authorization:'Bearer xoxb-2544772940691-3967276504629-u59O14TpWtYSseshTR1YplDa'
+  'Content-Type': 'application/x-www-form-urlencoded'
 }
 document.querySelector('#submitInfo').onclick=()=>{
   const name = document.getElementById('name').value
   const email = document.getElementById('email').value
   const message = document.getElementById('message').value
-  const data = {
-    "channel": "C02FU0RPDLN",
-    "blocks": [
-      {
-        "type": "section",
-        "text": {
-          "text": "PandoWeb Chat",
-          "type": "mrkdwn"
-        },
-        "fields": [
-          {
-            "type": "mrkdwn",
-            "text": "*Full Name*"
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Email*"
-          },
-          {
-            "type": "plain_text",
-            "text": name
-          },
-          {
-            "type": "plain_text",
-            "text": email
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Message*"
-          },
-          {
-            "type": "mrkdwn",
-            "text": " "
-          },
-          {
-            "type": "plain_text",
-            "text": message
-          }
-        ]
-      }
-    ]
-  }
-  fetch(url,{
-    body:JSON.stringify(data),       
-    method:'POST',
-    headers
-  }) .then(response => response.json()).then(json=>{
-    if(json.ok){
-      alert('Success!')
-    }else{
-      alert('Fail!')
+
+  const body = `&token=${token}&channel=${channel}&text=${name}<>${email}<>${message}`
+
+  axios.post(url, body, {
+    timeout: 10000,
+    transformRequest(data, headers) {
+      delete headers.common['Content-Type'];
+      return data;
     }
-  }).catch(()=>{
-    alert('Fail!')
+  }).then(res => {
+    console.log(res)
+    console.log("success")
+  }).catch(err => {
+    console.log(err)
+    console.log("failed")
   })
   return false
 }
-
-document.querySelector('#emailOnlySubmit').onclick=()=>{
-  const email = document.getElementById('emailOnly').value
-  const data = {
-    "channel": "C02FU0RPDLN",
-    "blocks": [
-      {
-        "type": "section",
-        "text": {
-          "text": "PandoWeb Chat",
-          "type": "mrkdwn"
-        },
-        "fields": [
-          {
-            "type": "mrkdwn",
-            "text": "*Full Name*"
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Email*"
-          },
-          {
-            "type": "plain_text",
-            "text": email
-          },
-          {
-            "type": "mrkdwn",
-            "text": "*Message*"
-          },
-          {
-            "type": "mrkdwn",
-            "text": " "
-          },
-        ]
-      }
-    ]
-  }
-  fetch(url,{
-    method:'POST',
-    body:JSON.stringify(data),       
-    headers
-  }) .then(response => response.json()).then(json=>{
-    if(json.ok){
-      alert('Success!')
-    }else{
-      alert('Fail!')
-    }
-  }).catch(()=>{
-    alert('Fail!')
-  })
-  return false
-}
-
