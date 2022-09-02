@@ -1283,6 +1283,11 @@ body {
   background-color: rgb(62 125 255 / var(--tw-bg-opacity));
 }
 
+.ud-bg-pando{
+  --tw-bg-opacity: 1;
+  background-color: rgb(65 177 102 / var(--tw-bg-opacity));
+}
+
 .ud-bg-body-color{
   --tw-bg-opacity: 1;
   background-color: rgb(181 179 188 / var(--tw-bg-opacity));
@@ -1711,6 +1716,11 @@ body {
 .ud-text-primary{
   --tw-text-opacity: 1;
   color: rgb(62 125 255 / var(--tw-text-opacity));
+}
+
+.ud-text-pando{
+  --tw-text-opacity: 1;
+  color: rgb(65 177 102 / var(--tw-text-opacity));
 }
 
 .ud-text-\[\#B6BFC9\]{
