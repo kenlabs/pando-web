@@ -76,3 +76,24 @@ document.querySelector('#submitInfo').onclick=()=>{
   })
   return false
 }
+
+document.querySelector('#emailOnlySubmit').onclick=()=>{
+  const email = document.getElementById('emailOnly').value
+
+  const body = `&token=${token}&channel=${channel}&text=${email}`
+
+  axios.post(url, body, {
+    timeout: 10000,
+    transformRequest(data, headers) {
+      delete headers.common['Content-Type'];
+      return data;
+    }
+  }).then(res => {
+    console.log(res)
+    console.log("success")
+  }).catch(err => {
+    console.log(err)
+    console.log("failed")
+  })
+  return false
+}
