@@ -1497,7 +1497,7 @@ body {
 
 .ud-py-\[120px\]{
   padding-top: 120px;
-  padding-bottom: 120px;
+  /* padding-bottom: 120px; */
 }
 
 .ud-py-8{
@@ -1970,7 +1970,7 @@ input#checkboxLabel:checked ~ .box span{
 
 .focus\:ud-border-primary:focus{
   --tw-border-opacity: 1;
-  border-color: rgb(62 125 255 / var(--tw-border-opacity));
+  border-color: rgb(65 177 102 / var(--tw-border-opacity));
 }
 
 .focus\:ud-ring-2:focus{
