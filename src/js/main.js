@@ -48,13 +48,12 @@ document.querySelector(".back-to-top").onclick = () => {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 
-const url = 'https://slack.com/api/chat.postMessage'
-const token = 'xoxb-2544772940691-3967276504629-d3OomOkFhpZZ6CM4dRiP2wLW'
-const channel = 'C02FU0RPDLN'
-const headers = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-}
+// send us a message
 document.querySelector('#submitInfo').onclick=()=>{
+  const action = 'send slack message'
+  const url = 'https://slack.com/api/chat.postMessage'
+  const token = 'xoxb-2544772940691-3967276504629-QzGTLqySDiOBLmquN7d3ndah'
+  const channel = 'C02FU0RPDLN'
   const name = document.getElementById('name').value
   const email = document.getElementById('email').value
   const message = document.getElementById('message').value
@@ -69,31 +68,38 @@ document.querySelector('#submitInfo').onclick=()=>{
     }
   }).then(res => {
     console.log(res)
-    console.log("success")
+    console.log("success: "+action)
   }).catch(err => {
     console.log(err)
-    console.log("failed")
+    console.log("failed: "+action)
   })
   return false
 }
 
+// newsletter
 document.querySelector('#emailOnlySubmit').onclick=()=>{
+  const action = ''
+  const url = 'https://newsletter.kencloud.com/api/subscribers'
   const email = document.getElementById('emailOnly').value
-
-  const body = `&token=${token}&channel=${channel}&text=${email}`
-
+  const body = {
+    "email": email,
+    "name": email.split('@')[0],
+    "status": "enabled",
+    "lists": [
+      3
+    ],
+  }
   axios.post(url, body, {
     timeout: 10000,
-    transformRequest(data, headers) {
-      delete headers.common['Content-Type'];
-      return data;
+    headers: {
+      "Authorization": "Basic a2VubGFiczpVc0FzRUJXbnZ1Szc="
     }
   }).then(res => {
     console.log(res)
-    console.log("success")
+    console.log("success "+action)
   }).catch(err => {
     console.log(err)
-    console.log("failed")
+    console.log("failed "+action)
   })
   return false
 }
