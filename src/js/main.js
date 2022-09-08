@@ -51,21 +51,19 @@ document.querySelector(".back-to-top").onclick = () => {
 // send us a message
 document.querySelector('#submitInfo').onclick=()=>{
   const action = 'send slack message'
-  const url = 'https://slack.com/api/chat.postMessage'
-  const token = 'xoxb-2544772940691-3967276504629-QzGTLqySDiOBLmquN7d3ndah'
-  const channel = 'C02FU0RPDLN'
+  const url = 'https://pando-web-api.kencloud.com/message'
   const name = document.getElementById('name').value
   const email = document.getElementById('email').value
   const message = document.getElementById('message').value
 
-  const body = `&token=${token}&channel=${channel}&text=${name}<>${email}<>${message}`
+  const body = {
+    "fullName": name,
+    "emailAddress": email,
+    "message": message
+  }
 
   axios.post(url, body, {
-    timeout: 10000,
-    transformRequest(data, headers) {
-      delete headers.common['Content-Type'];
-      return data;
-    }
+    timeout: 60000,
   }).then(res => {
     console.log(res)
     console.log("success: "+action)
@@ -78,8 +76,8 @@ document.querySelector('#submitInfo').onclick=()=>{
 
 // newsletter
 document.querySelector('#emailOnlySubmit').onclick=()=>{
-  const action = ''
-  const url = 'https://newsletter.kencloud.com/api/subscribers'
+  const action = 'subscribe newsletter'
+  const url = 'https://pando-web-api.kencloud.com/newsletter/subscribers'
   const email = document.getElementById('emailOnly').value
   const body = {
     "email": email,
@@ -90,10 +88,7 @@ document.querySelector('#emailOnlySubmit').onclick=()=>{
     ],
   }
   axios.post(url, body, {
-    timeout: 10000,
-    headers: {
-      "Authorization": "Basic a2VubGFiczpVc0FzRUJXbnZ1Szc="
-    }
+    timeout: 60000,
   }).then(res => {
     console.log(res)
     console.log("success "+action)
