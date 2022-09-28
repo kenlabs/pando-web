@@ -51,7 +51,7 @@ document.querySelector(".back-to-top").onclick = () => {
 // send us a message
 document.querySelector('#submitInfo').onclick=()=>{
   const action = 'send slack message'
-  const url = 'https://pando-web-api.kencloud.com/message'
+  const url = 'https://web-api.pando.network/message'
   const name = document.getElementById('name').value
   const email = document.getElementById('email').value
   const message = document.getElementById('message').value
@@ -77,7 +77,7 @@ document.querySelector('#submitInfo').onclick=()=>{
 // newsletter
 document.querySelector('#emailOnlySubmit').onclick=()=>{
   const action = 'subscribe newsletter'
-  const url = 'https://pando-web-api.kencloud.com/newsletter/subscribers'
+  const url = 'https://web-api.pando.network/newsletter/subscribers'
   const email = document.getElementById('emailOnly').value
   const body = {
     "email": email,
