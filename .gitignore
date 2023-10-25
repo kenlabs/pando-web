@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/webstorm+all,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=webstorm+all,node
 
+#
+/build
+
 ### Node ###
 # Logs
 logs
