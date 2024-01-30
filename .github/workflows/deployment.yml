@@ -51,6 +51,6 @@ jobs:
       - name: Deploy
         uses: WyriHaximus/github-action-helm3@v3
         with:
-          exec: helm upgrade pando-network --install ./charts --namespace website --set-string tag=latest
+          exec: helm upgrade pando-network --install ./chart --namespace website --set-string tag=latest
           kubeconfig: ${{ secrets.KUBECONTENT }}
           overrule_existing_kubeconfig: "true"
