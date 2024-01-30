@@ -1,0 +1,12 @@
+apiVersion: v2
+name: pando-network
+description: Install pando.network to provide pando official web page.
+version: 1.0.0
+kubeVersion: < 1.28.0-0
+home: https://pando.network/
+keywords:
+  - pando-network
+sources:
+  - https://github.com/pando-project/pando-web
+maintainers:
+  - name: pando team
